@@ -1,0 +1,44 @@
+import random
+def print_heart():
+    print("  **     **  ")
+    print(" *  *   *  * ")
+    print("*    * *    *")
+    print("*     *     *")
+    print(" *          * ")
+    print("  *         *  ")
+    print("   *       *   ")
+    print("    *     *    ")
+    print("     *   *     ")
+    print("      * *      ")
+    print("       *       ")
+
+# Hieronder geef ik de limiet aan van de getallen waar de robot uit kan kiezen
+min_getal = 0  # Het minimale getal dat de spel kan kiezen
+max_getal = 100 # Het maximale getal dat de spel kan kiezen
+aantal_raden = 8  # Aantal pogingen dat de speler krijgt
+
+# Hier gaan we getal bepalen met random functie tussen twee getallen.
+geheim_getal = random.randint(min_getal, max_getal)
+naam= input("HEY! Wat leuk dat je er bent! Wat is je naam?:")
+
+print(f"Welkom,{naam} bij het raadspel! Wij gaan galgjuh spelen! \n Je hebt {aantal_raden} pogingen om het getal te raden tussen {min_getal} en {max_getal}.")
+
+# Gebruik van een for-loop om de gebruiker te laten raden 
+for poging in range(1, aantal_raden + 1):
+    gok = int(input(f"Kans {poging}: Wat denkje jij dat de magische getal is: "))
+
+    if gok == geheim_getal:
+        print(f"Gefeliciteerd {naam}! Je hebt het juiste getal {geheim_getal} geraden in {poging} pogingen. Dit is heel knap gedaan! \n  ")
+        break
+    elif gok < geheim_getal:
+        print("Oei! Het magische getal is wel iets hoger dan wat jij hebt geraden, probeer het nog een keer.")
+    else:
+        print("Ohh noo! Het magische getal is wel iets lager dan wat jij hebt geraden, probeer het nog een keer. \n You can do this! ")
+
+# Als het getal niet is geraden
+if gok != geheim_getal:
+    print(f"Helaas {naam}, erg jammer dat je het niet hebt geraden, hierdoor loop jij 1 miljoen euro mis! Het juiste antwoord was {geheim_getal}. \nVolgende keer zal het vast beter gaan! Tot snel {naam}!")
+    print(print_heart())
+
+
+print_heart()
